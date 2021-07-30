@@ -9,7 +9,4 @@ import org.springframework.data.repository.query.Param;
 
 public interface ClientRepository extends PagingAndSortingRepository<ClientEntity, Long> {
 
-    @Query("SELECT c FROM ClientEntity c WHERE (:firstName is null or c.firstName LIKE %:firstName%)  and (:lastName is null or c.lastName LIKE %:lastName%)")
-    Page<ClientEntity> getByClientInfo(@Param("firstName") String firstName,
-                                       @Param("lastName") String lastName, Pageable pageable);
 }

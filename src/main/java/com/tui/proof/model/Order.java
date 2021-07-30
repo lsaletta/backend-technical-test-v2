@@ -4,9 +4,10 @@ import lombok.Data;
 
 @Data
 public class Order {
-  private String number;
-  private Address deliveryAddress;
-  private int pilotes;
-  private double orderTotal;
+    private String number;
+    private Address deliveryAddress;
+    private int pilotes;
+    private double orderTotal;
+    private Client clientInformation;
 
 }
