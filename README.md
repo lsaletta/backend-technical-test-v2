@@ -1,11 +1,12 @@
 # backend-technical-test-v2
 
 ## Authors
+
 - [LUCA SALETTA SILLERO](https://github.com/lsaletta)
 
-## Como utilizar
+## How to Use
 
-Abrir una consola y ejecutar:
+Open terminal and execute:
 
 ```
 git clone https://github.com/lsaletta/backend-technical-test-v2.git
@@ -14,8 +15,23 @@ mvn clean install
 java -jar target/backend-technical-test-2.0.0-SNAPSHOT.jar
 ```
 
-## USO DE LA API
+**[Optional]** Generate docker image:
 
-Despues de seguir los pasos anteriores, estará la API arrancada en: `http://localhost:8688/tuimm/v1`
+```
+cd backend-technical-test-v2
+mvn clean install docker:build 
+docker run -p 8081:8081 backend-technical-test
+```
 
-Se ha añadido al micro-servicio Swagger. URL Swagger: http://localhost:8688/tuimm/v1/swagger-ui.html
+**[Optional]** Run docker image:
+
+```
+docker run -p 8081:8081 backend-technical-test
+```
+
+## How use Api
+
+Before follow previous step, API is running: 
+`http://localhost:8688/tuimm/v1`
+
+URL Swagger: http://localhost:8688/tuimm/v1/swagger-ui.html
