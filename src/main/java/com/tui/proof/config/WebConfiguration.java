@@ -30,8 +30,13 @@ public class WebConfiguration implements WebMvcConfigurer {
         return builder;
     }
 
+    /**
+     * ObjectMapper initialization.
+     *
+     * @return customizable objectMapper.
+     */
     @Bean
-    public ObjectMapper mapper() {
+    public ObjectMapper objectMapper() {
         final ObjectMapper mapper = jacksonBuilder().build();
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
@@ -41,7 +46,7 @@ public class WebConfiguration implements WebMvcConfigurer {
     }
 
     private MappingJackson2HttpMessageConverter jacksonConverter() {
-        return new MappingJackson2HttpMessageConverter(this.mapper());
+        return new MappingJackson2HttpMessageConverter(this.objectMapper());
     }
 
 

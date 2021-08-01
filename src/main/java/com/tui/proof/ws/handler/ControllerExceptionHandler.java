@@ -12,9 +12,15 @@ import org.springframework.web.context.request.WebRequest;
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
+    /**
+     * Handler {@link TUIMMException}.
+     * @param ex
+     * @param request
+     * @return response with NO_CONTENT httpStatus
+     */
     @ExceptionHandler(TUIMMException.class)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public ErrorMessage handler(TUIMMException ex, WebRequest request) {
+    public ErrorMessage handler(final TUIMMException ex, final WebRequest request) {
         ErrorMessage message = new ErrorMessage(ex.getErrorDescription());
         return message;
     }

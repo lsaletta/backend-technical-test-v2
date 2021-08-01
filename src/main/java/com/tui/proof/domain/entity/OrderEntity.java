@@ -41,11 +41,13 @@ public class OrderEntity {
     @Column(name = "DONE")
     private boolean done;
 
-    @JoinColumn(nullable = true, insertable = false, updatable = false, name = "ADDRESS_ID", referencedColumnName = "ID")
+    @JoinColumn(nullable = true, insertable = false, updatable = false,
+            name = "ADDRESS_ID", referencedColumnName = "ID")
     @ManyToOne(optional = true)
     private AddressEntity address;
 
-    @JoinColumn(nullable = true, insertable = false, updatable = false, name = "CLIENT_ID", referencedColumnName = "ID")
+    @JoinColumn(nullable = true, insertable = false, updatable = false,
+            name = "CLIENT_ID", referencedColumnName = "ID")
     @ManyToOne(optional = true)
     private ClientEntity clientInfo;
 

@@ -9,7 +9,19 @@ import org.springframework.data.repository.query.Param;
 
 public interface OrderRepository extends PagingAndSortingRepository<OrderEntity, Long> {
 
-    @Query("SELECT c FROM OrderEntity c WHERE (:firstName is null or c.clientInfo.firstName LIKE %:firstName%)  and (:lastName is null or c.clientInfo.lastName LIKE %:lastName%)")
+    /**
+     * Search by firtsName and lastName and avoids empty values in the filter.
+     *
+     * @param firstName
+     * @param lastName
+     * @param pageable
+     *
+     * @return paged orders
+     */
+
+    @Query("SELECT c FROM OrderEntity c WHERE "
+            + "(:firstName is null or c.clientInfo.firstName LIKE %:firstName%) "
+            + "and (:lastName is null or c.clientInfo.lastName LIKE %:lastName%)")
     Page<OrderEntity> getByClientInfo(@Param("firstName") String firstName,
                                       @Param("lastName") String lastName, Pageable pageable);
 }

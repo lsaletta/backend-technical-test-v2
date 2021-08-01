@@ -10,9 +10,15 @@ import lombok.EqualsAndHashCode;
 public class TUIMMException extends RuntimeException {
 
     private static final long serialVersionUID = -4105726199013772984L;
-    private String errorDescription;
+    private final String errorDescription;
 
-    public TUIMMException(String errorDescription, Throwable throwable) {
+    /**
+     * Custom construct.
+     *
+     * @param errorDescription
+     * @param throwable
+     */
+    public TUIMMException(final String errorDescription, final Throwable throwable) {
         super(throwable);
         this.errorDescription = errorDescription;
     }
