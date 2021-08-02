@@ -1,7 +1,7 @@
 package com.tui.proof.service;
 
 
-import com.inditex.poc.common.BaseTest;
+import com.tui.proof.common.BaseTest;
 import com.tui.proof.domain.entity.OrderEntity;
 import com.tui.proof.domain.repository.OrderRepository;
 import com.tui.proof.exception.TUIMMException;

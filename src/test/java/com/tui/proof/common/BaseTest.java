@@ -1,4 +1,4 @@
-package com.inditex.poc.common;
+package com.tui.proof.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,6 +24,11 @@ public class BaseTest {
         file = new File(resource.getFile());
 
         return mapper.readValue(file, mapper.getTypeFactory().constructCollectionType(List.class, clasz));
+    }
+
+    public <T> T getFileFromResources(String json, Class<T> clasz) throws IOException {
+        ObjectMapper mapper = mapper();
+        return mapper.readValue(json, clasz);
     }
 
 

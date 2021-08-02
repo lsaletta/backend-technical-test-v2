@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "first_name": "LUCA",
+    "last_name": "SALETTA",
+    "telephone": "600097595"
+  },
+  {
+    "id": 2,
+    "first_name": "PAOLO",
+    "last_name": "SALETTA",
+    "telephone": "625082506"
+  },
+  {
+    "id": 3,
+    "first_name": "PAOLA",
+    "last_name": "SALETTA",
+    "telephone": "625082515"
+  },
+  {
+    "id": 4,
+    "first_name": "MARIA",
+    "last_name": "SILLERO",
+    "telephone": "646462960"
+  }
+]
