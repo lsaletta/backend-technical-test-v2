@@ -30,12 +30,13 @@ class OrderControllerTests {
     }
 
     @Test
-    public void givenCustomOffset_whenGetOrders_ReturnAllOrders()
+    public void givenCustomSize_whenGetOrders_ReturnAllOrders()
             throws Exception {
         mvc.perform(get(ORDER_ENDPOINT)
+                .param("size", "2")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.content", hasSize(5)));
+                .andExpect(jsonPath("$.content", hasSize(2)));
     }
 
     @Test
