@@ -1,13 +1,13 @@
 package com.tui.proof.ws.controller;
 
 import com.tui.proof.model.Client;
+import com.tui.proof.model.request.BaseClientRQ;
 import com.tui.proof.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,7 +51,7 @@ public class ClientController {
      */
     @PostMapping("")
     public ResponseEntity<Client> save(
-            @Valid @RequestBody final Client client) {
+            @Valid @RequestBody final BaseClientRQ client) {
         return new ResponseEntity<>(clientService.saveClient(client), HttpStatus.CREATED);
     }
 

@@ -2,7 +2,9 @@ package com.tui.proof.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
@@ -45,6 +47,8 @@ public class BaseTest {
         final ObjectMapper mapper = jacksonBuilder().build();
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+        mapper.setDateFormat(new StdDateFormat().withColonInTimeZone(true));
         return mapper;
     }
 }

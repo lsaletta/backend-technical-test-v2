@@ -152,8 +152,7 @@ public class ClientServiceTests extends BaseTest {
     @Test
     void givenRepositoryOutputTest9_whenSaveClient_thenCreatedClient() {
 
-        ClientEntity clientEntity = clientEntityList.stream().findFirst().get();
-
+        ClientEntity clientEntity = buildMockClientEntity();
         Mockito.when(clientRepository.save(eq(clientEntity)))
                 .thenReturn(clientEntity);
 
@@ -165,10 +164,11 @@ public class ClientServiceTests extends BaseTest {
         Assertions.assertEquals(clientEntity.getFirstName(), client.getFirstName());
     }
 
+
     @Test
     void givenRepositoryOutputTest10_whenSaveClient_thenCreatedClient() {
 
-        ClientEntity clientEntity = clientEntityList.stream().findFirst().get();
+        ClientEntity clientEntity = buildMockClientEntity();
 
         Mockito.when(clientRepository.save(eq(clientEntity)))
                 .thenThrow(new RuntimeException("test"));
@@ -181,6 +181,12 @@ public class ClientServiceTests extends BaseTest {
                 .save(eq(clientEntity));
 
         Assert.assertEquals("Error in save client", tuimmException.getErrorDescription());
+    }
+
+    private ClientEntity buildMockClientEntity() {
+        ClientEntity clientEntity = clientEntityList.stream().findFirst().get();
+        clientEntity.setId(null);
+        return clientEntity;
     }
 
 

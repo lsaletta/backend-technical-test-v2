@@ -2,6 +2,7 @@ package com.tui.proof.mapper;
 
 import com.tui.proof.domain.entity.ClientEntity;
 import com.tui.proof.model.Client;
+import com.tui.proof.model.request.BaseClientRQ;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -9,5 +10,10 @@ import org.mapstruct.factory.Mappers;
 public interface ClientMapper {
     ClientMapper INSTANCE = Mappers.getMapper(ClientMapper.class);
 
-    Client toDto(ClientEntity priceEntity);
+    Client toDto(ClientEntity clientEntity);
+
+    ClientEntity toEntity(BaseClientRQ clientRQ);
+
+    ClientEntity toEntity(Client client);
+
 }

@@ -2,6 +2,7 @@ package com.tui.proof.service;
 
 import com.tui.proof.exception.TUIMMException;
 import com.tui.proof.model.Client;
+import com.tui.proof.model.request.BaseClientRQ;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,7 @@ public interface ClientService {
      * @param client
      * @return If create, return client. If not, return optional empty
      */
-    Client saveClient(Client client) throws TUIMMException;
+    Client saveClient(BaseClientRQ client) throws TUIMMException;
 
     /**
      * Get client by id.
@@ -39,7 +40,7 @@ public interface ClientService {
      * Delete client by id.
      *
      * @param id
-     * @return If deleted, return client. If not, return optional empty
+     * @throws TUIMMException
      */
     void deleteClient(Long id) throws TUIMMException;
 

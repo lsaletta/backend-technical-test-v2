@@ -9,10 +9,17 @@ import javax.validation.ConstraintValidatorContext;
 public class AlphaValidator implements
         ConstraintValidator<AlphaConstraint, String> {
 
+    private boolean mandatory;
+
+    @Override
+    public void initialize(final AlphaConstraint constraintAnnotation) {
+        this.mandatory = constraintAnnotation.mandatory();
+    }
+
     @Override
     public boolean isValid(final String name,
                            final ConstraintValidatorContext cxt) {
-        return StringUtils.isEmpty(name) || StringUtils.isAlpha(name);
+        return (!this.mandatory && StringUtils.isEmpty(name)) || StringUtils.isAlpha(name);
     }
 
 }
