@@ -3,6 +3,8 @@ package com.tui.proof.service;
 
 import com.tui.proof.common.BaseTest;
 import com.tui.proof.domain.entity.OrderEntity;
+import com.tui.proof.domain.repository.AddressRepository;
+import com.tui.proof.domain.repository.ClientRepository;
 import com.tui.proof.domain.repository.OrderRepository;
 import com.tui.proof.exception.TUIMMException;
 import com.tui.proof.model.Order;
@@ -37,13 +39,19 @@ public class OrderServiceTests extends BaseTest {
     @Mock
     private OrderRepository orderRepository;
 
+    @Mock
+    private AddressRepository addressRepository;
+
+    @Mock
+    private ClientRepository clientRepository;
+
     private List<OrderEntity> orderEntityList;
 
     @BeforeEach
     public void init() throws IOException {
         orderEntityList =
                 getFileFromListResources("jsons/Orders.json", OrderEntity.class);
-        orderService = new OrderServiceImpl(orderRepository);
+        orderService = new OrderServiceImpl(addressRepository, orderRepository, clientRepository);
     }
 
     @Test

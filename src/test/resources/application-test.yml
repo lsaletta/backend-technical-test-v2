@@ -1,0 +1,7 @@
+server:
+  port: 8688
+  servlet:
+    context-path: /tuimm/v1
+
+order:
+  updateTime: 10
