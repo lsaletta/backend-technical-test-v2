@@ -1,4 +1,4 @@
-package com.tui.proof.model;
+package com.tui.proof.model.request;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -8,17 +8,7 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class Address {
-
+public class CreateOrderRQ extends BaseOrderRQ {
     @NotNull
-    private String street;
-
-    @NotNull
-    private String postcode;
-
-    @NotNull
-    private String city;
-
-    @NotNull
-    private String country;
+    private Long clientId;
 }
