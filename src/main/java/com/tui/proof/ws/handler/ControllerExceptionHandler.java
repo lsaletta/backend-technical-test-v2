@@ -60,9 +60,9 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
      */
 
     @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
-                                                                  HttpHeaders headers, HttpStatus status,
-                                                                  WebRequest request) {
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(final MethodArgumentNotValidException ex,
+                                                                  final HttpHeaders headers, final HttpStatus status,
+                                                                  final WebRequest request) {
         String fieldErrors = StringUtils.EMPTY;
         if (ex.hasErrors()) {
             List<FieldError> fieldErrorList = ex.getFieldErrors();
