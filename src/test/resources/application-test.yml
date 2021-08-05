@@ -3,5 +3,17 @@ server:
   servlet:
     context-path: /tuimm/v1
 
+spring:
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      group-id: group-1
+    topic: test-cooking
+    bootstrap-servers: localhost:9092
+
 order:
   updateTime: 10
+
+com.scheduling:
+  cron: "*/1 * * * * *"
+  enabled: false

@@ -30,7 +30,7 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
      * @return response with NO_CONTENT httpStatus
      */
     @ExceptionHandler(TUIMMException.class)
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public ErrorMessage handlerTUIMM(final TUIMMException ex, final WebRequest request) {
         ErrorMessage message = new ErrorMessage(ex.getErrorDescription());
         return message;
