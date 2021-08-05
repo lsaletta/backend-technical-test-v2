@@ -1,5 +1,6 @@
 package com.tui.proof.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -43,6 +44,7 @@ public class ClientEntity {
     @Column(name = "TELEPHONE")
     private String telephone;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "clientInfo", fetch = FetchType.EAGER, orphanRemoval = false)
     private List<OrderEntity> orderEntityList = new ArrayList<>();
 
