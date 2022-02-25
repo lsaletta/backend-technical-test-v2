@@ -4,6 +4,9 @@
 
 - [LUCA SALETTA SILLERO](https://github.com/lsaletta)
 
+## Statement of Technical Test
+ Read [statment](https://github.com/lsaletta/backend-technical-test-v2/blob/master/Technical%20test%202.0.pdf) for more information.
+
 ## How to Use
 
 **IMPORTANT**: To run the application you need to have a Kafka server, you can configure the url from the application.yml or use the included kafka docker image.
